@@ -1,0 +1,132 @@
+[submodule "aragon/govern"]
+	path = aragon/govern
+	url = git@github.com:aragon/govern.git
+[submodule "aragon/court-precedence-campaign"]
+	path = aragon/court-precedence-campaign
+	url = git@github.com:aragon/court-precedence-campaign.git
+[submodule "aragon/aragon-apps"]
+	path = aragon/aragon-apps
+	url = git@github.com:aragon/aragon-apps.git
+[submodule "aragon/staking"]
+	path = aragon/staking
+	url = git@github.com:aragon/staking.git
+[submodule "aragon/aragon-network-token"]
+	path = aragon/aragon-network-token
+	url = git@github.com:aragon/aragon-network-token.git
+[submodule "aragon/buidler-aragon"]
+	path = aragon/buidler-aragon
+	url = git@github.com:aragon/buidler-aragon.git
+[submodule "aragon/evm-storage-proofs"]
+	path = aragon/evm-storage-proofs
+	url = git@github.com:aragon/evm-storage-proofs.git
+[submodule "aragon/aragonOS"]
+	path = aragon/aragonOS
+	url = git@github.com:aragon/aragonOS.git
+[submodule "aragon/dao-templates"]
+	path = aragon/dao-templates
+	url = git@github.com:aragon/dao-templates.git
+[submodule "aragon/protocol"]
+	path = aragon/protocol
+	url = git@github.com:aragon/protocol.git
+[submodule "aragon/aragon-factory"]
+	path = aragon/aragon-factory
+	url = git@github.com:aragon/aragon-factory.git
+[submodule "aragon/aragon-court"]
+	path = aragon/aragon-court
+	url = git@github.com:aragon/aragon-court.git
+[submodule "aragon/apm"]
+	path = aragon/apm
+	url = git@github.com:aragon/apm.git
+[submodule "aragon/aragon-id"]
+	path = aragon/aragon-id
+	url = git@github.com:aragon/aragon-id.git
+[submodule "aragon/minime"]
+	path = aragon/minime
+	url = git@github.com:aragon/minime.git
+[submodule "aragon/concierge"]
+	path = aragon/concierge
+	url = git@github.com:aragon/concierge.git
+[submodule "aragon/ppf"]
+	path = aragon/ppf
+	url = git@github.com:aragon/ppf.git
+[submodule "aragon/svrp"]
+	path = aragon/svrp
+	url = git@github.com:aragon/svrp.git
+[submodule "aragon/signature-registry"]
+	path = aragon/signature-registry
+	url = git@github.com:aragon/signature-registry.git
+[submodule "uniswap/uniswap-v3-periphery"]
+	path = uniswap/uniswap-v3-periphery
+	url = git@github.com:Uniswap/uniswap-v3-periphery.git
+[submodule "uniswap/uniswap-v3-core"]
+	path = uniswap/uniswap-v3-core
+	url = git@github.com:Uniswap/uniswap-v3-core.git
+[submodule "uniswap/uniswap-lib"]
+	path = uniswap/uniswap-lib
+	url = git@github.com:Uniswap/uniswap-lib.git
+[submodule "uniswap/uniswap-v2-core"]
+	path = uniswap/uniswap-v2-core
+	url = git@github.com:Uniswap/uniswap-v2-core.git
+[submodule "uniswap/uniswap-v2-periphery"]
+	path = uniswap/uniswap-v2-periphery
+	url = git@github.com:Uniswap/uniswap-v2-periphery.git
+[submodule "uniswap/merkle-distributor"]
+	path = uniswap/merkle-distributor
+	url = git@github.com:Uniswap/merkle-distributor.git
+[submodule "uniswap/governance"]
+	path = uniswap/governance
+	url = git@github.com:Uniswap/governance.git
+[submodule "uniswap/advanced-weth"]
+	path = uniswap/advanced-weth
+	url = git@github.com:Uniswap/advanced-weth.git
+[submodule "compound-finance/gateway"]
+	path = compound-finance/gateway
+	url = git@github.com:compound-finance/gateway.git
+[submodule "compound-finance/compound-protocol"]
+	path = compound-finance/compound-protocol
+	url = git@github.com:compound-finance/compound-protocol.git
+[submodule "compound-finance/autonomous-proposals"]
+	path = compound-finance/autonomous-proposals
+	url = git@github.com:compound-finance/autonomous-proposals.git
+[submodule "compound-finance/open-oracle"]
+	path = compound-finance/open-oracle
+	url = git@github.com:compound-finance/open-oracle.git
+[submodule "0x-project/protocol"]
+	path = 0x-project/protocol
+	url = git@github.com:0xProject/protocol.git
+[submodule "0x-project/VDF"]
+	path = 0x-project/VDF
+	url = git@github.com:0xProject/VDF.git
+[submodule "0x-project/0x-monorepo"]
+	path = 0x-project/0x-monorepo
+	url = git@github.com:0xProject/0x-monorepo.git
+[submodule "merkle-blue/tokenmint"]
+	path = merkle-blue/tokenmint
+	url = https://github.com/MerkleBlue/tokenmint
+[submodule "dydx-protocol/protocol_v1"]
+	path = dydx-protocol/protocol_v1
+	url = git@github.com:dydxprotocol/protocol_v1.git
+[submodule "dydx-protocol/exchange-wrappers"]
+	path = dydx-protocol/exchange-wrappers
+	url = git@github.com:dydxprotocol/exchange-wrappers.git
+[submodule "dydx-protocol/perpetual"]
+	path = dydx-protocol/perpetual
+	url = git@github.com:dydxprotocol/perpetual.git
+[submodule "dydx-protocol/solo"]
+	path = dydx-protocol/solo
+	url = git@github.com:dydxprotocol/solo.git
+[submodule "rena-finance/Rena"]
+	path = rena-finance/Rena
+	url = git@github.com:Rena-Finance/Rena.git
+[submodule "0xsequence/niftyswap"]
+	path = 0xsequence/niftyswap
+	url = git@github.com:0xsequence/niftyswap.git
+[submodule "0xsequence/wallet-contracts"]
+	path = 0xsequence/wallet-contracts
+	url = git@github.com:0xsequence/wallet-contracts.git
+[submodule "0xsequence/erc20-meta-token"]
+	path = 0xsequence/erc20-meta-token
+	url = git@github.com:0xsequence/erc20-meta-token.git
+[submodule "0xsequence/erc-1155"]
+	path = 0xsequence/erc-1155
+	url = git@github.com:0xsequence/erc-1155.git

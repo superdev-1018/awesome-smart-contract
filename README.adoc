@@ -1,0 +1,274 @@
+= Awesome Smart-Contracts OpenSource Projects
+:hide-uri-scheme:
+:toc: 
+:toclevels: 2
+
+Indexing awesome Smart-contract projects implemented on top of Ethereum
+
+image::https://cdn.discordapp.com/icons/595666850260713488/a_ea9e6d5f14867dbb9ce93fabc325870b.gif[Ethereum, align="center"]
+
+== 0xgit@github.com:0xsequence/niftyswap.git
+The Protocol for Trading Tokens
+
+- https://0x.org/
+- https://github.com/0xProject
+
+=== 0x-monorepo
+0x protocol monorepo - includes our smart contracts and many developer tools
+
+- asset-proxy
+- broker
+- coordinator
+- dev-utils
+- erc1155
+- erc20
+- erc721
+- exchange-forwarder
+- exchange-libs
+- exchange
+- extensions
+- integrations
+- multisig
+- staking
+- test-utils
+- utils
+- zero-ex
+
+=== protocol
+This repository is a monorepo including the 0x protocol smart contracts and numerous developer tools. Each public sub-package is independently published to NPM.
+
+- asset-proxy
+- broker
+- coordinator
+- dev-utils
+- erc1155
+- erc20
+- erc721
+- exchange-forwarder
+- exchange-libs
+- exchange
+- extensions
+- integrations
+- multisig
+- staking
+- test-utils
+- utils
+- zero-ex
+
+=== VDF
+A Solidity implementation of a VDF verifier contract.
+
+- Verifier.sol
+- VerifierTesting.sol
+
+
+== 0xsequence
+A blockchain infrastructure stack for seamless user experiences on Ethereum
+
+- https://sequence.build
+- https://github.com/0xsequence
+
+image::assets/0xsequence.png[0xsequence, align="center"]
+
+=== erc-1155
+Ethereum Multi-Token Standard (ERC-1155)
+
+This repository maintains a secure, efficient and standards-compliant implementation of the ERC-1155 token standard for Ethereum. The implementation was created during Horizon Blockchain Games' participation in the coauthoring of the ERC-1155 and is used by Skyweaver, Opensea, and many other projects since its release.
+
+The ERC-1155 token standard contains multiple classes of tokens referenced by IDs from non-fungible (max supply=1), to semi-fungible (supply=low), to highly fungible (supply=high). Standard interface discussion at ERC-1155.
+
+==== Audits
+- https://github.com/0xsequence/erc-1155/blob/master/audits/Security_Audit_Horizon_Games_23-12-19_2.pdf[Security_Audit_Horizon_Games_23-12-19_2.pdf]
+
+- https://github.com/0xsequence/erc-1155/blob/master/audits/horizon-games-audit-2020-02.pdf[horizon-games-audit-2020-02.pdf]
+
+=== erc20-meta-token
+- General ERC20 to ERC1155 Token Wrapper Contract. 
+- Allows any ERC-20 token to be wrapped inside of an ERC-1155 contract, and thereby allows an ERC-20 token to function as an ERC-1155 contract.
+
+==== Contracts
+
+- https://github.com/0xsequence/erc20-meta-token/blob/master/src/contracts/wrapper/ERC20Wrapper.sol[ERC20Wrapper.sol] Allows users to wrap any amount of any ERC-20 token with a 1:1 ratio of corresponding ERC-1155 tokens. Each ERC-20 is assigned an ERC-1155 id 
+for more efficient CALLDATA usage when doing transfers.
+
+==== Audits
+- https://github.com/0xsequence/erc20-meta-token/blob/master/audits/Security_Audit_Horizon_Games_23-12-19_2.pdf[Security_Audit_Horizon_Games_23-12-19_2.pdf]
+
+- https://github.com/0xsequence/erc20-meta-token/blob/master/audits/horizon-games-audit-2020-02.pdf[horizon-games-audit-2020-02.pdf]
+
+=== niftyswap
+Niftyswap is a decentralized token swap protocol for ERC-1155 tokens on Ethereum. In other words, Niftyswap is Uniswap for ERC-1155 tokens.
+
+We are incredibly thankful for the work done by the Uniswap team, without which Niftyswap wouldn't exists.
+
+==== Description
+Niftyswap is an implementation of https://hackmd.io/@477aQ9OrQTCbVR3fq1Qzxg/HJ9jLsfTz?type=view[Uniswap], a protocol for automated token exchange on Ethereum. While Uniswap is for trading https://eips.ethereum.org/EIPS/eip-20[ERC-20] tokens, Niftyswap is a protocol for x https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md[ERC-20] tokens. Both are designed to favor ease of use and provide guaranteed access to liquidity on-chain. 
+
+Most exchanges maintain an order book and facilitate matches between buyers and sellers. Niftyswap smart contracts hold liquidity reserves of various tokens, and trades are executed directly against these reserves. Prices are set automatically using the https://ethresear.ch/t/improving-front-running-resistance-of-x-y-k-market-makers/1281[constant product] $x*y = K$ market maker mechanism, which keeps overall reserves in relative equilibrium. Reserves are pooled between a network of liquidity providers who supply the system with tokens in exchange for a proportional share of transaction fees. 
+
+An important feature of Nitfyswap is the utilization of a factory/registry contract that deploys a separate exchange contract for each ERC-1155 token contract. These exchange contracts each hold independent reserves of a single fungible ERC-1155 currency and their associated ERC-1155 token id. This allows trades between the [Currency](#currency) and the ERC-1155 tokens based on the relative supplies. 
+
+For more details, see https://github.com/0xsequence/niftyswap/blob/master/SPECIFICATIONS.pdf[Specification.pdf]
+
+==== Differences with Uniswap
+There are some differences compared to the original Uniswap that we would like to outline below:
+
+1. For ERC-1155 tokens, not ERC-20s
+2. Base currency is not ETH, but needs to be an ERC-1155
+3. Liquidity fee is 0.5% instead of 0.3%
+4. All fees are taken from base currency (Uniswap takes trading fees on both sides). This will lead to some small inneficiencies which will be corrected via arbitrage.
+4. Users do not need to set approvals before their first trade
+5. 100% native meta-tx friendly for ERC-1155 implementations with native meta-tx functionalities
+6. Front-end implementations can add arbitrary fee (in addition to the 0.5%) for tokens with native meta-transactions.
+7. Less functions than Uniswap
+
+There are pros and cons to these differences and we welcome you to discuss these by openning issues in this repository.
+
+==== Contracts:
+* https://github.com/0xsequence/niftyswap/blob/master/src/contracts/exchange/NiftyswapExchange.sol[NiftyswapExchange.sol]: The exchange contract that handles the logic for exchanging assets for a given base token.
+
+* https://github.com/0xsequence/niftyswap/blob/master/src/contracts/exchange/NiftyswapFactory.sol[NiftyswapFactory.sol]: The exchange factory that allows the creation of nifyswap exchanges for the tokens of a given ERC-1155 token conract and an ERC-1155 base currency. 
+
+* https://github.com/0xsequence/niftyswap/blob/master/src/contracts/utils/WrapAndNiftyswap.sol[WrapAndNiftyswap.sol]: Will allow users to wrap their  ERC-20 into ERC-1155 tokens and pass their order to niftyswap. All funds will be returned to original owner and this contact should never hold any funds outside of a given wrap transaction.
+
+==== Audits
+- https://github.com/0xsequence/niftyswap/blob/master/audits/Security_Audit_Nitfyswap_Horizon_Games_1.pdf[Security_Audit_Nitfyswap_Horizon_Games_1.pdf]
+
+- https://github.com/0xsequence/niftyswap/blob/master/audits/consensys-diligence-audit-2020-02.pdf[consensys-diligence-audit-2020-02.pdf]
+
+=== wallet-contracts
+Sequence, Ethereum Smart Wallet Contracts
+
+==== Contracts
+- https://github.com/0xsequence/wallet-contracts/blob/master/src/contracts/Factory.sol[Factory.sol]:  Will deploy a new wallet instance.
+
+- https://github.com/0xsequence/wallet-contracts/blob/master/src/contracts/Wallet.sol[Wallet.sol]: Minimal upgradeable proxy implementation, delegates all calls to the address defined by the storage slot matching the wallet address.
+
+- https://github.com/0xsequence/wallet-contracts/blob/master/src/contracts/utils/SignatureValidator.sol[utils/SignatureValidator.sol]: Contains logic for signature validation. Signatures from wallet contracts assume ERC-1271 support (https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1271.md)
+
+==== Audits
+- https://github.com/0xsequence/wallet-contracts/blob/master/audits/Consensys_Diligence.md[Consensys_Diligence.md]
+
+- https://github.com/0xsequence/wallet-contracts/blob/master/audits/Quantstamp_Arcadeum_Report_Final.pdf[Quantstamp_Arcadeum_Report_Final.pdf]
+
+- https://github.com/0xsequence/wallet-contracts/blob/master/audits/sequence_quantstamp_audit_feb_2021.pdf[sequence_quantstamp_audit_feb_2021.pdf]
+
+== Aragon
+Organizations of the future
+
+- https://aragon.org/
+- https://github.com/aragon
+
+image::assets/aragon.png[0xsequence, align="center"]
+
+=== apm
+(Aragon 1) Aragon Package Manager
+
+=== aragon-apps
+(Aragon 1) Aragon apps developed by Aragon Core Devs (smart contracts + webapps)
+
+====  Apps
+
+This monorepo contains the following apps:
+
+===== Agent 
+Hold assets and perform actions from Aragon organizations.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/agent/contracts/Agent.sol[Agent.sol]
+
+===== Agreement
+Govern organizations through a subjective rules.
+
+Aragon Agreements allow organization actions to be governed by a subjective set of rules, that cannot be encoded into smart contracts.
+
+Agreements are the bridge between an Aragon organization and Aragon Court. Organizations with an Agreement can become optimistic: most actions should be easily executed and challenged exceptionally, instead of forcing each user to go through a tedious approval process every time they want to perform an action.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/agreement/contracts/Agreement.sol[Agreement.sol]
+
+===== Finance 
+Send payments and manage expenses with budgeting.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/finance/contracts/Finance.sol[Finance.sol]
+
+===== Token Manager
+Manages organization tokens.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/token-manager/contracts/TokenManager.sol[TokenManager.sol]
+
+===== Vault
+Securely owns and manages tokens on behalf of a DAO.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/vault/contracts/Vault.sol[Vault.sol]
+
+===== Disputable Voting
+Create disputable votes that execute actions on behalf of token holders.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/voting-disputable/contracts/DisputableVoting.sol[DisputableVoting.sol]
+
+===== Voting
+Create votes that execute actions on behalf of token holders.
+
+- https://github.com/aragon/aragon-apps/blob/master/apps/voting/contracts/Voting.sol[Voting.sol]
+
+=== aragon-court
+A subjective oracle secured by cryptoeconomics.
+
+Aragon Court handles subjective disputes that cannot be solved by smart contracts. For this, it employs jurors that need to stake a token to the Court which allows them to get drafted to adjudicate disputes, that can earn them fees. The more tokens a juror has activated, the higher the chance to get drafted and earn more fees.
+
+Aragon Court attempts to find what the subjective truth is with a Schelling game. Jurors are asked to vote on the ruling that they think their fellow jurors are more likely to vote on. To incentivize consensus, jurors that don't vote on the consensus ruling have some tokens slashed. Jurors that vote with the consensus ruling are rewarded with ruling fees and juror tokens from the jurors that voted for a minority ruling.
+
+A design goal of the mechanism is to require very few jurors to adjudicate a dispute and produce a ruling. A small number of jurors is adjudicated by default to a dispute, and their ruling can be appealed in multiple rounds of appeals.
+
+Even though Aragon Court could theoretically resolve any type of binary dispute, in its first deployments it will be used to arbitrate Proposal Agreements. These agreements require entities creating a proposal in an organization to agree to its specific rules around proposal creation, putting some collateral at stake that could be lost if the Court finds the proposal invalid.
+
+==== Contracts
+- arbitration
+- court
+- disputes
+- lib
+- registry
+- standards
+- subscriptions
+- test
+- treasury
+- voting
+
+
+== dydx-protocol
+The Protocol for Decentralized Margin Trading & Derivatives
+
+- https://dydx.exchange
+- https://github.com/dydxprotocol
+
+=== protocol_v1
+[DEPRECATED] Solidity Smart Contracts for the dYdX V1 Margin Trading Protocol.
+
+=== exchange-wrappers
+Collection of exchange wrapper contracts used by the dYdX Protocol. 
+
+=== perpetual
+Ethereum Smart Contracts and TypeScript client library for the dYdX Perpetual Contracts Protocol. Currently used by trade.dydx.exchange.
+
+=== solo
+dYdX V2 Margin Trading Protocol. 
+
+
+== rena-finance
+​RenaSwap is a one-sided automated market maker-based decentralized token swap protocol which utilizes token wrappers, buy-only liquidity pairs, and circulating asset flows to amplify volume for all tokens integrated with RenaSwap. We call this Volume Aggregation as it gives new life to all participating projects in the form of increased volume, which attracts more liquidity, increasing incentives for Liquidity Providers. Its specialized design utilizes RENA, our deflationary ERC-20 utility token, to tap into the numerous capital flows moving through interoperating DEXs and share a percentage of those flows with ETH/RENA liquidity providers.
+
+- https://rena.finance/
+- https://github.com/Rena-Finance
+
+=== Rena
+
+- Claim.sol
+- FeeDistributor.sol
+- LPStaking.sol
+- Migrations.sol
+- Rebalancer.sol
+- Rena.sol
+- RenaswapV1Factory.sol
+- RenaswapV1Pair.sol
+- RenaswapV1Router.sol
+- RenaswapV1Wrapper.sol
+- ReservationEvent.sol
